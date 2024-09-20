@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Manzi - Developer Resume</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Fira Code', monospace; /* Monospaced font */
+            background-color: #1e1e1e; /* Dark background */
+            color: #d4d4d4; /* Light gray text */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #121212; /* Sticky background */
+            padding: 10px;
+            z-index: 10;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #57a64a; /* Bright green for links */
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative; /* Relative positioning for children */
+            z-index: 1; /* Ensure text is above canvas */
+        }
+
+        section {
+            height: 100vh; /* Full viewport height for each section */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Initial opacity for animation */
+            transform: translateY(20px); /* Slide in effect */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1; /* Fade in */
+            transform: translateY(0); /* Slide to position */
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            position: relative; /* Position text */
+            z-index: 2; /* Ensure h1 is above bubbles */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #57a64a; /* Bright green for headers */
+            margin-bottom: 20px;
+            position: relative; /* Position text */
+            z-index: 2; /* Ensure h2 is above bubbles */
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: opacity 0.3s ease; /* Transition for opacity */
+            position: relative; /* Position text */
+            z-index: 2; /* Ensure p is above bubbles */
+        }
+
+        .transparent {
+            opacity: 0.2; /* Reduced opacity */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 20px;
+        }
+
+        strong {
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        a {
+            color: #57a64a; /* Bright green for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Floating bubble background */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Lower z-index for canvas */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="header" class="visible">
+            <h1>Mike Manzi</h1>
+            <p><strong>Phone:</strong> 646-269-7326 | <strong>Email:</strong> <a href="mailto:mikemanzi@outlook.com">mikemanzi@outlook.com</a> | <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mikemanzics" target="_blank">linkedin.com/in/mikemanzics</a></p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>Oklahoma Christian University</strong><br>B.S. in Computer Science with Cyber Security | Expected Graduation: April 2025<br>GPA: 3.6</p>
+            <p><strong>Relevant Coursework:</strong> OOP in Java, Data Structures & Algorithms, Internet Application Development, Database Systems, Software Engineering, Cloud Architecture & Security, x86 Assembly Language, Network Engineering, Network Forensics</p>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <ul>
+                <li>
+                    <strong>Software Engineering Intern</strong><br>Discover Financial Services, Chicago IL (June - August 2024)
+                    <p>Contributed to the development of an internal tool for enhancing compliance processes, improving user experience, and optimizing backend functionality.</p>
+                    <p>Set up Jenkins pipelines for deployment, utilized MySQL for data management during testing, and ensured software reliability through unit testing with Jest.</p>
+                </li>
+                <li>
+                    <strong>Software Engineering Intern</strong><br>American Fidelity, Oklahoma City OK (February 2023 - April 2024)
+                    <p>Developed web applications using Angular and TypeScript, integrated SQL Azure databases, and automated CI/CD pipelines using Git Azure DevOps and Octopus.</p>
+                </li>
+                <li>
+                    <strong>Software Development Engineer in Test Intern</strong><br>American Fidelity, Oklahoma City OK (January - February 2023)
+                    <p>Authored unit and end-to-end tests for web applications using Cypress and collaborated with development teams to identify and document software defects.</p>
+                </li>
+                <li>
+                    <strong>Lead IT Technician</strong><br>Oklahoma Christian University, Oklahoma City OK (May 2021 - December 2022)
+                    <p>Oversaw IT infrastructure, managed network and server operations, implemented security updates, and improved technical support workflows.</p>
+                </li>
+                <li>
+                    <strong>LMS Technology Intern</strong><br>Oklahoma Christian University (April 2021 - December 2023)
+                    <p>Administered LMS content and courses, created detailed documentation, and supported faculty with LMS tools, improving efficiency and user confidence.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <strong>Course Planning Web App:</strong> Developed a RESTful API with Node.js and Express.js, integrated MySQL, deployed on AWS, and connected to a Vue.js frontend.
+                </li>
+                <li>
+                    <strong>POS System:</strong> Created a Java-based POS system using OOP and MVC principles, featuring a Swing-based UI for robust transaction management.
+                </li>
+                <li>
+                    <strong>Alien Attack Game:</strong> Built an Alien Attack game in C++ using SFML, implementing game mechanics, collision detection, and graphics rendering.
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Languages</h2>
+            <p><strong>Technical Skills:</strong> React, Angular, Vue.js, Java, JavaScript, C#, Python, SQL, AWS, Azure, Jenkins, .NET, SpringBoot</p>
+            <p><strong>Languages:</strong> English, French, Swahili, Kinyarwanda</p>
+        </section>
+    </div>
+
+    <!-- Canvas for bubbles -->
+    <canvas id="bubbleCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('bubbleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let bubbles = [];
+
+        function createBubble() {
+            const size = Math.random() * 50 + 10;
+            const bubble = {
+                x: Math.random() * canvas.width,
+                y: canvas.height + size,
+                radius: size,
+                speed: Math.random() * 3 + 1,
+                color: `hsl(0, 0%, ${Math.random() * 40 + 20}%)`,  
+                popped: false,
+                shrink: 0,
+            };
+            bubbles.push(bubble);
+        }
+
+        function drawBubbles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            bubbles.forEach((bubble) => {
+                ctx.beginPath();
+                ctx.arc(bubble.x, bubble.y, bubble.radius - bubble.shrink, 0, Math.PI * 2);
+                ctx.fillStyle = bubble.color;
+                ctx.fill();
+                ctx.closePath();
+
+                if (!bubble.popped) {
+                    bubble.y -= bubble.speed;
+                }
+
+                // Check for overlap with sections
+                const sections = document.querySelectorAll('section');
+                sections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    const distance = Math.hypot(bubble.x - (rect.left + rect.width / 2), bubble.y - (rect.top + rect.height / 2));
+                    if (distance < bubble.radius + Math.min(rect.width, rect.height) / 2) {
+                        section.classList.add('transparent');
+                    } else {
+                        section.classList.remove('transparent');
+                    }
+                });
+
+                // Remove bubble if it goes off screen
+                if (bubble.y + bubble.radius < 0) {
+                    bubbles.splice(bubbles.indexOf(bubble), 1);
+                }
+            });
+        }
+
+        function animate() {
+            drawBubbles();
+            requestAnimationFrame(animate);
+        }
+
+        function detectBubbleClick(x, y) {
+            bubbles.forEach(bubble => {
+                const distance = Math.hypot(bubble.x - x, bubble.y - y);
+                if (distance < bubble.radius) {
+                    bubble.popped = true;
+                }
+            });
+        }
+
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            detectBubbleClick(x, y);
+        });
+
+        setInterval(createBubble, 1000);
+        animate();
+
+        // Scroll animation
+        const sections = document.querySelectorAll('section');
+        const options = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
