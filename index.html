@@ -1,132 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mike Manzi - Developer Resume</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
-            font-family: 'Fira Code', monospace; /* Monospaced font */
-            background-color: #1e1e1e; /* Dark background */
-            color: #d4d4d4; /* Light gray text */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            scroll-behavior: smooth; /* Smooth scrolling */
+            font-family: 'Fira Code', monospace;
+            /* Monospaced font */
+            background-color: #1e1e1e;
+            /* Dark background */
+            color: #d4d4d4;
+            /* Light gray text */
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
+            scroll-behavior: smooth;
+            /* Smooth scrolling */
         }
-
+        
         nav {
             position: sticky;
             top: 0;
-            background-color: #121212; /* Sticky background */
+            background-color: #121212;
+            /* Sticky background */
             padding: 10px;
             z-index: 10;
+            width: 100%;
+            /* Ensure the nav bar spans the full width */
         }
-
+        
         nav ul {
             display: flex;
             justify-content: center;
             list-style-type: none;
             padding: 0;
+            flex-wrap: nowrap;
+            /* Ensure items stay in one line */
+            overflow-x: auto;
+            /* Allow horizontal scrolling if needed */
         }
-
+        
         nav ul li {
             margin: 0 15px;
+            white-space: nowrap;
+            /* Prevent text from wrapping */
         }
-
+        
         nav a {
-            color: #57a64a; /* Bright green for links */
+            color: #57a64a;
+            /* Bright green for links */
             text-decoration: none;
         }
-
+        
         nav a:hover {
             text-decoration: underline;
         }
-
+        
         .container {
-            max-width: 800px;
+            max-width: 90%;
+            /* Make width responsive */
             margin: 0 auto;
             padding: 50px 20px;
-            position: relative; /* Relative positioning for children */
-            z-index: 1; /* Ensure text is above canvas */
+            position: relative;
+            /* Relative positioning for children */
+            z-index: 1;
+            /* Ensure text is above canvas */
         }
-
+        
         section {
-            height: 100vh; /* Full viewport height for each section */
+            height: 100vh;
+            /* Full viewport height for each section */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0; /* Initial opacity for animation */
-            transform: translateY(20px); /* Slide in effect */
+            opacity: 0;
+            /* Initial opacity for animation */
+            transform: translateY(20px);
+            /* Slide in effect */
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
+        
         section.visible {
-            opacity: 1; /* Fade in */
-            transform: translateY(0); /* Slide to position */
+            opacity: 1;
+            /* Fade in */
+            transform: translateY(0);
+            /* Slide to position */
         }
-
+        
         h1 {
             font-size: 3rem;
             margin-bottom: 10px;
-            position: relative; /* Position text */
-            z-index: 2; /* Ensure h1 is above bubbles */
+            position: relative;
+            /* Position text */
+            z-index: 2;
+            /* Ensure h1 is above bubbles */
         }
-
+        
         h2 {
             font-size: 1.8rem;
-            color: #57a64a; /* Bright green for headers */
+            color: #57a64a;
+            /* Bright green for headers */
             margin-bottom: 20px;
-            position: relative; /* Position text */
-            z-index: 2; /* Ensure h2 is above bubbles */
+            position: relative;
+            /* Position text */
+            z-index: 2;
+            /* Ensure h2 is above bubbles */
         }
-
+        
         p {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 20px;
-            transition: opacity 0.3s ease; /* Transition for opacity */
-            position: relative; /* Position text */
-            z-index: 2; /* Ensure p is above bubbles */
+            transition: opacity 0.3s ease;
+            /* Transition for opacity */
+            position: relative;
+            /* Position text */
+            z-index: 2;
+            /* Ensure p is above bubbles */
         }
-
+        
         .transparent {
-            opacity: 0.2; /* Reduced opacity */
+            opacity: 0.2;
+            /* Reduced opacity */
         }
-
+        
         ul {
             list-style-type: none;
             padding: 0;
         }
-
+        
         ul li {
             margin-bottom: 20px;
         }
-
+        
         strong {
             font-size: 1.2rem;
             color: #ffffff;
         }
-
+        
         a {
-            color: #57a64a; /* Bright green for links */
+            color: #57a64a;
+            /* Bright green for links */
             text-decoration: none;
         }
-
+        
         a:hover {
             text-decoration: underline;
         }
-
         /* Floating bubble background */
+        
         canvas {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 0; /* Lower z-index for canvas */
+            z-index: 0;
+            /* Lower z-index for canvas */
+        }
+        /* Responsive container and font sizes */
+        
+        .container {
+            max-width: 90%;
+            /* Adjust width for better responsiveness */
+            padding: 20px;
+        }
+        /* Responsive font size for headings */
+        
+        h1 {
+            font-size: 2.5rem;
+            /* Smaller screens, smaller font */
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            font-size: 1rem;
+        }
+        /* Adjust nav layout for smaller screens */
+        
+        @media (max-width: 768px) {
+            nav ul {
+                justify-content: flex-start;
+                /* Align left on smaller screens */
+                overflow-x: scroll;
+                /* Scroll horizontally on small screens */
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .container {
+                padding: 30px 10px;
+            }
+            section {
+                height: auto;
+                /* Allow sections to scale dynamically */
+                padding: 40px 0;
+            }
+        }
+        /* Larger screens */
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+                /* Increase font size on large screens */
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            .container {
+                padding: 60px 20px;
+            }
         }
     </style>
+
 </head>
+
 <body>
 
     <nav>
@@ -142,7 +245,7 @@
     <div class="container">
         <section id="header" class="visible">
             <h1>Mike Manzi</h1>
-            <p><strong>Phone: <strong>Email:</strong> <a href="mailto:m.manzi@eagles.oc.edu">Email me!</a> | <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mikemanzics" target="_blank">linkedin.com/in/mikemanzics</a></p>
+            <p><strong>Email:</strong> <a href="mailto:m.manzi@eagles.oc.edu">Email me!</a> | <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mikemanzics" target="_blank">linkedin.com/in/mikemanzics</a></p>
         </section>
 
         <section id="education">
@@ -219,7 +322,7 @@
                 y: canvas.height + size,
                 radius: size,
                 speed: Math.random() * 3 + 1,
-                color: `hsl(0, 0%, ${Math.random() * 40 + 20}%)`,  
+                color: `hsl(0, 0%, ${Math.random() * 40 + 20}%)`,
                 popped: false,
                 shrink: 0,
             };
@@ -307,4 +410,5 @@
         });
     </script>
 </body>
+
 </html>
